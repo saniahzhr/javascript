@@ -1,0 +1,66 @@
+
+<html>
+<h2 align="center">Daftar Data Pegawai</h2>
+		<table align="center" cellpadding="20" width="60%">			
+			<tbody>
+                <script language="javascript">
+                let no, warna, jabatan, gapok, agama, tunjab,tunkel,zakat_profesi,take_home_pay;
+                
+                for (no = 1; no <=100; no++) {
+                    if (no <= 25) {
+                        jabatan = 'manager'
+                    } else if (no <= 50) {
+                        jabatan = 'asisten manager'
+                    }else if (no <= 75) {
+                        jabatan = 'supervisor'
+                    }else {
+                        jabatan = 'staff'
+                    }
+
+                switch (jabatan) {
+                    case 'manager':
+                        gapok = 15000000
+                        break;
+                    case 'asisten manager':
+                        gapok = 10000000
+                    break;
+                    case 'supervisor':
+                        gapok = 7000000
+                    break;
+                    case 'staff':
+                        gapok = 4000000
+                    break;
+
+                    default:
+                        break;
+                }
+                
+                tunjab = gapok * 0.2
+                tunkel = gapok * 0.1
+                gaji_kotor = gapok + tunjab + tunkel
+
+                agama = (no % 2 == 0) ? 'non muslim': 'muslim';
+                warna = (no % 2 == 0) ? 'skyblue': 'yellow';
+
+                zakat_profesi = (agama == 'muslim' && gaji_kotor >= 7000000) ? gaji_kotor * 2.5/100 : 0;
+                take_home_pay = gaji_kotor - zakat_profesi;
+
+                document.write
+                (`<tr bgcolor="${warna}">
+                        <td>${no}</td>
+                        <td>Pegawai${no}</td>
+                        <td>${jabatan}</td>
+                        <td>${agama}</td>
+                        <td>${gapok}</td>
+                        <td>${tunjab}</td>
+                        <td>${tunkel}</td>
+                        <td>${gaji_kotor}</td>
+                        <td>${zakat_profesi}</td>
+                        <td>${take_home_pay}</td>
+                    </tr>`);
+                    
+                }
+            </script>
+			</tbody>
+		</table>
+        </html>
