@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Latihan Table</title></head>
+	<body>
+		<h3 align="center"> Data Pegawai </h3>
+		<table align="center" border="1" cellpadding="20" cellspacing="0"
+		       width="60%">
+			<thead>
+				<tr bgcolor="tomato">
+					<th colspan="7" align="center">Cetak Data Pegawai</th>
+					
+					
+				</tr>
+			</thead>
+			<tbody>
+				<!------- Data ------->
+				<tr>
+					<td  align="center">Nama pegawai </td>
+					<td  align="center">Jabatan</td>
+                    <td  align="center">Status </td>
+                    <td  align="center">Gaji Pokok </td>
+                    <td  align="center">Tunjangan Jabatan </td>
+                    <td  align="center">BPJS </td>
+                    <td  align="center">Tunjangan Keluarga </td>
+
+				</tr>
+				
+				<tr>
+                    <td id="nama" align="center">Ridwan</td>
+                    <td id="jabatan" align="center">Manager</td>
+                    <td id="status" align="center">Menikah</td>
+                    <td id="gaji" align="center"></td>
+                    <td id="tunjab" align="center"></td>
+                    <td id="bpjs" align="center"></td>
+                    <td id="tunkel" align="center"></td>
+
+
+                </tr>
+				
+				<tr>
+				
+				</tr>
+				
+				<tr>
+				
+                </tr>
+				
+			</tbody>
+			<tfoot>
+				<tr bgcolor="orange">
+                    <th>Total: </th>
+					<th id="total" colspan="6"></th>
+				</tr>
+			</tfoot>
+		</table>
+	</body>
+</html>
+
+<script languange="javascript">
+
+var jabatan = document.getElementById("jabatan").innerHTML;
+
+
+//Manager=>15 jt, Asisten Manager=>10 jt, Staff=>5 jt
+if(jabatan=='Manager'){
+    document.getElementById("gaji").innerHTML = 15000000;
+}
+else if(jabatan=='Asisten Manager'){
+    document.getElementById("gaji").InnerHTML = 10000000;
+}
+else if(jabatan=='Staff'){
+    document.getElementById("gaji").InnerHTML = 5000000;
+}
+else{
+    document.getElementById("gaji").InnerHTML = 0;
+}
+
+//Tunjangan Jabatan 
+var gaji = document.getElementById("gaji").innerHTML;
+var tunjab = 0.15 * gaji; 
+document.getElementById("tunjab").innerHTML = tunjab;
+
+//BPJS
+
+var bpjs = 0.10 * gaji; 
+document.getElementById("bpjs").innerHTML = bpjs;
+
+//Tunjangan Keluarga
+var status = document.getElementById("status").innerHTML;
+
+if(status=='Menikah'){
+    var tkel = 0.20 * gaji;
+    document.getElementById("tunkel").innerHTML = tkel;
+
+}
+
+else{
+    document.getElementById("tunkel").innerHTML = 0;
+}
+var tunkel = document.getElementById("tunkel").innerHTML;
+
+//Total
+var total = parseInt(gaji) + parseInt(tunjab) + parseInt(bpjs) + parseInt(tunkel);
+document.getElementById("total").innerHTML = total;
+console.log(typeof(total));
+
+</script>
+
+</html>
