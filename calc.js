@@ -1,33 +1,57 @@
-function hitung(opr) {
-    let form = document.getElementById('calcForm'),
-    a1 = parseFloat(form.angka1.value),
-    a2 = parseFloat(form.angka2.value),
-    tampil = form.hasil,
-    total;
 
-    if (isNaN(a1) || isNaN(a2)) {
-        alert('Yang di Masukkan Harus Angka!!');
-        return;
-    }
-    switch (opr) {
-            case '+': total = a1 + a2;
-            
-            break;
-            case '-': total = a1 - a2;
-            
-            break;
-            case '*': total = a1 * a2;
-            
-            break;
-            case '/': total = a1 / a2;
-            
-            break;
-            case '^': total =Math.pow(a1, a2);
+function hitung(tombol){
+    var frm = document.getElementById('calcForm');
+    var a1 = parseFloat(frm.angka1.value);
+    var a2 = parseFloat(frm.angka2.value);
 
+    switch (tombol) {
+        case 'tambah':
+            if (isNaN(a1) || isNaN(a2)) {
+                alert("Harap masukkan angka!!");
+            }    
+            else {
+                var total = a1 + a2;
+                frm.hasil.value = total; 
+            } 
+            break;
+        case 'kurang':
+            if (isNaN(a1) || isNaN(a2)) {
+                alert("Harap masukkan angka!!");
+            }    
+            else {
+                var total = a1 - a2;
+                frm.hasil.value = total; 
+            } 
+            break;
+        case 'kali':
+            if (isNaN(a1) || isNaN(a2)) {
+                alert("Harap masukkan angka!!");
+            }    
+            else {
+                var total = a1 * a2;
+                frm.hasil.value = total; 
+            } 
+            break;
+        case 'bagi':
+            if (isNaN(a1) || isNaN(a2)) {
+                alert("Harap masukkan angka!!");
+            }    
+            else {
+                var total = a1 / a2;
+                frm.hasil.value = total; 
+            } 
+            break;
+        case 'pangkat':
+            if (isNaN(a1) || isNaN(a2)) {
+                alert("Harap masukkan angka!!");
+            }    
+            else {
+                var total = Math.pow(a1,a2);
+                frm.hasil.value = total; 
+            } 
             break;
     
         default:
             break;
     }
-    tampil.value = total;
 }
